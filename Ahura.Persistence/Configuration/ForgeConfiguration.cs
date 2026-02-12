@@ -16,9 +16,6 @@ public class ForgeConfiguration : IEntityTypeConfiguration<Forge>
         builder.Property(x => x.Name).HasMaxLength(100);
 
         builder.Property(x => x.ForgeSteps)
-              .HasConversion(
-                  v => JsonSerializer.Serialize(v, (JsonSerializerOptions)null),
-                  v => JsonSerializer.Deserialize<List<ForgeStep>>(v, (JsonSerializerOptions)null)
-              );
+                .HasColumnType("json");
     }
 }

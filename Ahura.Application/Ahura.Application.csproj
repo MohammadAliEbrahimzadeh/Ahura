@@ -11,6 +11,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<ProjectReference Include="..\Ahura.Infrastructure\Ahura.Infrastructure.csproj" />
 		<ProjectReference Include="..\Ahura.Persistence\Ahura.Persistence.csproj" />
 	</ItemGroup>
 
