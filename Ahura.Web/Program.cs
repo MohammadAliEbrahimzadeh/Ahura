@@ -1,4 +1,5 @@
 using Ahura.Web;
+using Radenoor.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,6 +11,8 @@ builder.Services
     .InjectServices();
 
 var app = builder.Build();
+
+app.UseMiddleware<ExceptionHandler>();
 
 app.UseSwagger();
 app.UseSwaggerUI();
