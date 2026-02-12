@@ -6,8 +6,10 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services
     .InjectControllers()
+    .InjectMapster()
     .InjectDbContext(builder.Configuration)
     .InjectAddSwaggerGen()
+    .InjectUnitOfWork()
     .InjectServices();
 
 var app = builder.Build();

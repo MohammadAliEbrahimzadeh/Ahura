@@ -4,6 +4,7 @@
   </Folder>
   <Folder Name="/Infrastructure/">
     <Project Path="Ahura.Application/Ahura.Application.csproj" />
+    <Project Path="Ahura.Infrastructure/Ahura.Infrastructure.csproj" Id="6348fcbe-c81e-4de0-b0ed-b245e6a5a10d" />
     <Project Path="Ahura.Persistence/Ahura.Persistence.csproj" />
   </Folder>
 </Solution>

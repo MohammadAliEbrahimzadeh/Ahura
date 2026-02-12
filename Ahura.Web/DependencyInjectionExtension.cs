@@ -1,6 +1,10 @@
 ﻿using Ahura.Application.Interfaces;
+using Ahura.Application.Mappers;
 using Ahura.Application.Services;
+using Ahura.Infrastructure;
 using Ahura.Persistence.Context;
+using Ahura.Persistence.Interceptors;
+using Mapster;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 
@@ -11,16 +15,29 @@ internal static class DependencyInjectionExtension
     internal static IServiceCollection InjectControllers(this IServiceCollection services) =>
         services.AddControllers().Services;
 
-
     internal static IServiceCollection InjectServices(this IServiceCollection services) =>
        services.AddScoped<IForgeServices, ForgeServices>();
 
+    internal static IServiceCollection InjectUnitOfWork(this IServiceCollection services) =>
+       services.AddScoped<IUnitOfWork, UnitOfWork>();
+
+    internal static IServiceCollection InjectMapster(this IServiceCollection services)
+    {
+        var config = TypeAdapterConfig.GlobalSettings;
+        config.Scan(typeof(ForgeMapper).Assembly);
+        config.Compile();
+
+        return services;
+    }
 
     internal static IServiceCollection InjectDbContext(this IServiceCollection services, IConfiguration configuration)
     {
         string connectionString = configuration.GetConnectionString("MariaDb")!;
 
-        services.AddDbContext<AhuraDbContext>(options =>
+        services.AddScoped<SaveEntityInterceptor>();
+
+        services.AddDbContext<AhuraDbContext>((sp, options) =>
+        {
             options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString), mySqlOptions =>
             {
                 mySqlOptions.EnableRetryOnFailure(
@@ -30,10 +47,14 @@ internal static class DependencyInjectionExtension
                 );
 
                 mySqlOptions.CommandTimeout(30);
-            }));
+            });
+
+            options.AddInterceptors(sp.GetRequiredService<SaveEntityInterceptor>());
+        });
 
         return services;
     }
+
 
 
     internal static IServiceCollection InjectAddSwaggerGen(this IServiceCollection services) =>

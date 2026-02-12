@@ -14,6 +14,7 @@
 
 	<ItemGroup>
 	  <ProjectReference Include="..\Ahura.Application\Ahura.Application.csproj" />
+	  <ProjectReference Include="..\Ahura.Infrastructure\Ahura.Infrastructure.csproj" />
 	</ItemGroup>
 
 </Project>
