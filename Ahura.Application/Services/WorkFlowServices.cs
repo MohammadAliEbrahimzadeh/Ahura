@@ -1,6 +1,7 @@
 ﻿using Ahura.Application.Contracts.Requests;
 using Ahura.Application.Helpers;
 using Ahura.Application.Interfaces;
+using Ahura.Application.Resources;
 using Ahura.Infrastructure;
 using Ahura.Persistence.Entities;
 using Ahura.Persistence.Enums;
@@ -28,7 +29,7 @@ public class WorkFlowServices : IWorkFlowServices
             .FirstOrDefaultAsync(x => x.Name!.Equals(forgeName), cancellationToken);
 
         if (forgeEntity == null)
-            return new CustomResponse(null, false, "Workflow not found");
+            return new CustomResponse(null, false, ResponseMessages.NoDataWasFound);
 
         var steps = JsonSerializer.Deserialize<List<ForgeStepDto>>(forgeEntity.ForgeSteps!);
 
