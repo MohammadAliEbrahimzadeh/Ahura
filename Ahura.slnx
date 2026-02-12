@@ -1,0 +1,9 @@
+<Solution>
+  <Folder Name="/Application/">
+    <Project Path="Ahura.Web/Ahura.Web.csproj" />
+  </Folder>
+  <Folder Name="/Infrastructure/">
+    <Project Path="Ahura.Application/Ahura.Application.csproj" />
+    <Project Path="Ahura.Persistence/Ahura.Persistence.csproj" />
+  </Folder>
+</Solution>

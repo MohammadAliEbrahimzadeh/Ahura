@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net10.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Folder Include="Contracts\Responses\" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\Ahura.Persistence\Ahura.Persistence.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="RadenoorNuGets" Version="1.8.0" />
+	</ItemGroup>
+
+</Project>
