@@ -7,16 +7,44 @@ using Ahura.Persistence.Interceptors;
 using Mapster;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
+using Serilog;
+
+using Radenoor.Filters;
 
 namespace Ahura.Web;
 
 internal static class DependencyInjectionExtension
 {
+
+    internal static IServiceCollection InjectLogger(this IServiceCollection services)
+    {
+        Log.Logger = new LoggerConfiguration()
+            .WriteTo.Console()
+            .WriteTo.File(
+                path: "logs/log.txt",
+                rollingInterval: RollingInterval.Day,
+                retainedFileCountLimit: 30,
+                fileSizeLimitBytes: 10 * 1024 * 1024,
+                restrictedToMinimumLevel: Serilog.Events.LogEventLevel.Error
+            )
+            .MinimumLevel.Error()
+            .CreateLogger();
+
+        services.AddLogging(loggingBuilder =>
+        {
+            loggingBuilder.ClearProviders();
+            loggingBuilder.AddSerilog();
+        });
+
+        return services;
+    }
+
     internal static IServiceCollection InjectControllers(this IServiceCollection services) =>
-        services.AddControllers().Services;
+        services.AddControllers(options => options.Filters.Add<StatusCodeActionFilter>()).Services;
 
     internal static IServiceCollection InjectServices(this IServiceCollection services) =>
-       services.AddScoped<IForgeServices, ForgeServices>();
+       services.AddScoped<IForgeServices, ForgeServices>()
+               .AddScoped<IWorkFlowServices, WorkFlowServices>();
 
     internal static IServiceCollection InjectUnitOfWork(this IServiceCollection services) =>
        services.AddScoped<IUnitOfWork, UnitOfWork>();

@@ -5,6 +5,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 
 builder.Services
+    .InjectLogger()
     .InjectControllers()
     .InjectMapster()
     .InjectDbContext(builder.Configuration)
