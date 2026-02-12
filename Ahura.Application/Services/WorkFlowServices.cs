@@ -58,7 +58,7 @@ public class WorkFlowServices : IWorkFlowServices
 
     #region Private Method(s)
 
-    public async Task<bool> SendApiRequest(HttpRequestCall requestCall, CancellationToken cancellationToken)
+    private async Task<bool> SendApiRequest(HttpRequestCall requestCall, CancellationToken cancellationToken)
     {
         Guard.Against.Null(requestCall, nameof(requestCall));
         Guard.Against.NullOrWhiteSpace(requestCall.Endpoint, nameof(requestCall.Endpoint));
