@@ -7,6 +7,17 @@ public class AddForgeDto
     public string? Name { get; set; }
 
     public List<ForgeStepDto>? Steps { get; set; }
+
+    public List<StepTransition>? Transitions { get; set; }
+}
+
+public class StepTransition
+{
+
+    public int TriggerValue { get; set; }
+
+
+    public int NextStepOrder { get; set; }
 }
 
 

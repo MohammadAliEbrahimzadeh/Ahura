@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Ahura.Persistence.Migrations
 {
     [DbContext(typeof(AhuraDbContext))]
-    [Migration("20260212132004_AddForgeTable")]
-    partial class AddForgeTable
+    [Migration("20260212205839_InitiDb")]
+    partial class InitiDb
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -37,7 +37,7 @@ namespace Ahura.Persistence.Migrations
                         .HasColumnType("datetime(6)");
 
                     b.Property<string>("ForgeSteps")
-                        .HasColumnType("longtext");
+                        .HasColumnType("json");
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("tinyint(1)");
