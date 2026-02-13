@@ -2,9 +2,16 @@
 
 namespace Ahura.Persistence.Entities;
 
-public class Forge : BaseEntity<long>
+public partial class Forge : BaseEntity<long>
 {
     public string? Name { get; set; }
 
     public string? ForgeSteps { get; set; }
+
+    public long UserId { get; set; }
+}
+
+public partial class Forge
+{
+    public User? User { get; set; }
 }

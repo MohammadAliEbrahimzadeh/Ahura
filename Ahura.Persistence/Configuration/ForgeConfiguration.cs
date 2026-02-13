@@ -17,5 +17,11 @@ public class ForgeConfiguration : IEntityTypeConfiguration<Forge>
 
         builder.Property(x => x.ForgeSteps)
                 .HasColumnType("json");
+
+        builder
+            .HasOne(x => x.User)
+            .WithMany(x => x.Forges)
+            .HasForeignKey(x => x.UserId)
+            .OnDelete(DeleteBehavior.Restrict);
     }
 }
