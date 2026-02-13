@@ -8,11 +8,11 @@ using System.Net;
 
 namespace Ahura.Application.Services;
 
-public class ForgeServices : IForgeServices
+public class ForgeService : IForgeService
 {
     private readonly IUnitOfWork _unitOfWork;
 
-    public ForgeServices(IUnitOfWork unitOfWork)
+    public ForgeService(IUnitOfWork unitOfWork)
     {
         _unitOfWork = unitOfWork;
     }

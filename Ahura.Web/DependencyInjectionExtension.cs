@@ -43,8 +43,9 @@ internal static class DependencyInjectionExtension
         services.AddControllers(options => options.Filters.Add<StatusCodeActionFilter>()).Services;
 
     internal static IServiceCollection InjectServices(this IServiceCollection services) =>
-       services.AddScoped<IForgeServices, ForgeServices>()
-               .AddScoped<IWorkFlowServices, WorkFlowServices>();
+       services.AddScoped<IForgeService, ForgeService>()
+               .AddScoped<IWorkFlowService, WorkFlowService>()
+               .AddScoped<IUserService, UserService>();
 
     internal static IServiceCollection InjectUnitOfWork(this IServiceCollection services) =>
        services.AddScoped<IUnitOfWork, UnitOfWork>();

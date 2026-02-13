@@ -9,9 +9,9 @@ namespace Ahura.Web.Controllers;
 [Route("[controller]")]
 public class WorkFlowController : ControllerBase
 {
-    private readonly IWorkFlowServices _forgeServices;
+    private readonly IWorkFlowService _forgeServices;
 
-    public WorkFlowController(IWorkFlowServices forgeServices)
+    public WorkFlowController(IWorkFlowService forgeServices)
     {
         _forgeServices = forgeServices;
     }

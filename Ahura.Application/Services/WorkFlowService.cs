@@ -14,11 +14,11 @@ using System.Text.Json;
 
 namespace Ahura.Application.Services;
 
-public class WorkFlowServices : IWorkFlowServices
+public class WorkFlowService : IWorkFlowService
 {
     private readonly IUnitOfWork _unitOfWork;
 
-    public WorkFlowServices(IUnitOfWork unitOfWork)
+    public WorkFlowService(IUnitOfWork unitOfWork)
     {
         _unitOfWork = unitOfWork;
     }

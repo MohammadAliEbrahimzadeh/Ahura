@@ -9,9 +9,9 @@ namespace Ahura.Web.Controllers;
 [Route("[controller]")]
 public class ForgeController : ControllerBase
 {
-    private readonly IForgeServices _forgeServices;
+    private readonly IForgeService _forgeServices;
 
-    public ForgeController(IForgeServices forgeServices)
+    public ForgeController(IForgeService forgeServices)
     {
         _forgeServices = forgeServices;
     }

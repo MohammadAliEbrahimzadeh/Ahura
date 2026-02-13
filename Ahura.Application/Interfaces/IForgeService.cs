@@ -3,7 +3,7 @@ using Radenoor.Utilities;
 
 namespace Ahura.Application.Interfaces;
 
-public interface IForgeServices
+public interface IForgeService
 {
     Task<CustomResponse> AddNewForge(AddForgeDto dto, CancellationToken cancellationToken);
 }
