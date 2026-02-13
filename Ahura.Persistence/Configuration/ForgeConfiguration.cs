@@ -25,5 +25,9 @@ public class ForgeConfiguration : IEntityTypeConfiguration<Forge>
             .WithMany(x => x.Forges)
             .HasForeignKey(x => x.UserId)
             .OnDelete(DeleteBehavior.Restrict);
+
+        builder.HasIndex(x => new { x.UserId, x.Name })
+            .IsUnique()
+            .HasFilter("[IsDeleted] = 0");
     }
 }

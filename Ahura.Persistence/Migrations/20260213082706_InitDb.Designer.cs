@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Ahura.Persistence.Migrations
 {
     [DbContext(typeof(AhuraDbContext))]
-    [Migration("20260213081711_AddUserTable")]
-    partial class AddUserTable
+    [Migration("20260213082706_InitDb")]
+    partial class InitDb
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -55,7 +55,9 @@ namespace Ahura.Persistence.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("UserId", "Name")
+                        .IsUnique()
+                        .HasFilter("[IsDeleted] = 0");
 
                     b.ToTable("Forges");
                 });
