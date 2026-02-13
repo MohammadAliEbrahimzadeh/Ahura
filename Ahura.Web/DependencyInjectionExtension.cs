@@ -1,15 +1,17 @@
-﻿using Ahura.Application.Interfaces;
+﻿using Ahura.Application.Contracts.Requests;
+using Ahura.Application.Interfaces;
 using Ahura.Application.Mappers;
 using Ahura.Application.Services;
 using Ahura.Infrastructure;
 using Ahura.Persistence.Context;
 using Ahura.Persistence.Interceptors;
+using FluentValidation;
+using FluentValidation.AspNetCore;
 using Mapster;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
-using Serilog;
-
 using Radenoor.Filters;
+using Serilog;
 
 namespace Ahura.Web;
 
@@ -38,6 +40,10 @@ internal static class DependencyInjectionExtension
 
         return services;
     }
+
+    internal static IServiceCollection InjectFluentValidation(this IServiceCollection services) =>
+        services.AddValidatorsFromAssemblyContaining<AddUserDto>()
+                .AddFluentValidationAutoValidation().AddFluentValidationClientsideAdapters();
 
     internal static IServiceCollection InjectControllers(this IServiceCollection services) =>
         services.AddControllers(options => options.Filters.Add<StatusCodeActionFilter>()).Services;

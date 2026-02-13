@@ -22,14 +22,14 @@ namespace Ahura.Application.Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "18.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class ResponseMessages {
+    internal class BadRequestMessages {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal ResponseMessages() {
+        internal BadRequestMessages() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace Ahura.Application.Resources {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Ahura.Application.Resources.ResponseMessages", typeof(ResponseMessages).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Ahura.Application.Resources.BadRequestMessages", typeof(BadRequestMessages).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,38 +61,29 @@ namespace Ahura.Application.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to اطلاعات ثبت شد..
+        ///   Looks up a localized string similar to شماره تلفن اجباری است..
         /// </summary>
-        internal static string Created {
+        internal static string PhoneNumberRequired {
             get {
-                return ResourceManager.GetString("Created", resourceCulture);
+                return ResourceManager.GetString("PhoneNumberRequired", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to اطلاعاتی یافت نشد..
+        ///   Looks up a localized string similar to یوزرنیم بیشتر از 100 کاراکتر نمیتواند باشد..
         /// </summary>
-        internal static string NoDataWasFound {
+        internal static string UsernameMaxLenght {
             get {
-                return ResourceManager.GetString("NoDataWasFound", resourceCulture);
+                return ResourceManager.GetString("UsernameMaxLenght", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to شماره تلفن تکراری است..
+        ///   Looks up a localized string similar to یوزر نیم اجباری است..
         /// </summary>
-        internal static string PhoneNumberTaken {
+        internal static string UserNameRequired {
             get {
-                return ResourceManager.GetString("PhoneNumberTaken", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to یوزرنیم تکراری است..
-        /// </summary>
-        internal static string UsernameTaken {
-            get {
-                return ResourceManager.GetString("UsernameTaken", resourceCulture);
+                return ResourceManager.GetString("UserNameRequired", resourceCulture);
             }
         }
     }

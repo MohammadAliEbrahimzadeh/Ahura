@@ -117,16 +117,13 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Created" xml:space="preserve">
-    <value>اطلاعات ثبت شد.</value>
+  <data name="PhoneNumberRequired" xml:space="preserve">
+    <value>شماره تلفن اجباری است.</value>
   </data>
-  <data name="NoDataWasFound" xml:space="preserve">
-    <value>اطلاعاتی یافت نشد.</value>
+  <data name="UsernameMaxLenght" xml:space="preserve">
+    <value>یوزرنیم بیشتر از 100 کاراکتر نمیتواند باشد.</value>
   </data>
-  <data name="PhoneNumberTaken" xml:space="preserve">
-    <value>شماره تلفن تکراری است.</value>
-  </data>
-  <data name="UsernameTaken" xml:space="preserve">
-    <value>یوزرنیم تکراری است.</value>
+  <data name="UserNameRequired" xml:space="preserve">
+    <value>یوزر نیم اجباری است.</value>
   </data>
 </root>
