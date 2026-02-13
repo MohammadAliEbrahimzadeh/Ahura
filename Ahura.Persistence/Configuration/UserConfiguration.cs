@@ -11,6 +11,8 @@ public class UserConfiguration : IEntityTypeConfiguration<User>
     {
         builder.HasKey(x => x.Id);
 
+        builder.HasQueryFilter(x => x.IsDeleted == false);
+
         builder.Property(x => x.Username).IsRequired();
 
         builder.Property(x => x.Username).HasMaxLength(100);

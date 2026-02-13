@@ -11,6 +11,8 @@ public class ForgeConfiguration : IEntityTypeConfiguration<Forge>
     {
         builder.HasKey(x => x.Id);
 
+        builder.HasQueryFilter(x => x.IsDeleted == false);
+
         builder.Property(x => x.Name).IsRequired();
 
         builder.Property(x => x.Name).HasMaxLength(100);
